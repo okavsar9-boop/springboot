@@ -1,5 +1,6 @@
-package com.example.quickstart;
+package com.example.quickstart.common;
 
+import com.example.quickstart.common.Coach;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,5 +1,6 @@
-package com.example.quickstart;
+package com.example.quickstart.rest;
 
+import com.example.quickstart.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
