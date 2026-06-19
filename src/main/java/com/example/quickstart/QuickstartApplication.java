@@ -15,20 +15,36 @@ public class QuickstartApplication {
 		SpringApplication.run(QuickstartApplication.class, args);
 	}
 
-	private void createStudent(StudentDAO studentDAO) {
-		System.out.println("Creating a new student object");
-		Student tempStudent  = new Student("Paul","Doe","okavsar9@gmail.com");
+	private void readStudent(StudentDAO studentDAO) {
+		System.out.println("Creating 4 new student objects");
+		Student tempStudent1  = new Student("Paul","Doe","okavsar9@gmail.com");
+		Student tempStudent2  = new Student("Mia","Jenny","sneakyjm@gmail.com");
+		Student tempStudent3  = new Student("John","Plea","hondervue@gmail.com");
+		Student tempStudent4  = new Student("Kawa","Harma","10omhedb@gmail.com");
 
-		System.out.println("Saving the student");
-		studentDAO.save(tempStudent);
+		System.out.println("Saving the students");
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent3);
+		studentDAO.save(tempStudent4);
 
-		System.out.println("Saved student. Generated id: " + tempStudent.getId() );
+
+		System.out.println("Saved student. Generated id: " + tempStudent1.getId() );
+		System.out.println("Saved student. Generated id: " + tempStudent2.getId() );
+		System.out.println("Saved student. Generated id: " + tempStudent3.getId() );
+		System.out.println("Saved student. Generated id: " + tempStudent4.getId() );
+
+
+		System.out.println("Retrieving student with id: " + tempStudent1.getId());
+		Student student = studentDAO.foundById(tempStudent1.getId());
+		System.out.println("Found the student: " + student);
 	}
 
 	@Bean
 	public CommandLineRunner  commandLineRunner (StudentDAO studentDAO){
 		return runner -> {
-			createStudent(studentDAO);
+			//createMultipleStudent(studentDAO);
+			readStudent(studentDAO);
 		};
 
 	}
