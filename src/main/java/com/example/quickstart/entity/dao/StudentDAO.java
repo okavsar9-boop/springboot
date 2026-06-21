@@ -8,10 +8,12 @@ import java.util.List;
 public interface StudentDAO {
     void save(Student theStudent);
 
-    Student foundById(Integer id);
+    Student findById(Integer id);
     List<Student> findAll();
 
     List<Student> findByTheLastName(String theLastName);
 
+    void update (Student theStudent);
 
+    void delete ( Integer id);
 }

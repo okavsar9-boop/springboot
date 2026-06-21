@@ -18,19 +18,21 @@ public class QuickstartApplication {
 		SpringApplication.run(QuickstartApplication.class, args);
 	}
 
-	private void queryForStudentsByTheLastNames(StudentDAO studentDAO) {
-		List<Student> theStudents = studentDAO.findByTheLastName("Plea");
-		for (Student tempStudent: theStudents){
-			System.out.println(tempStudent);
-		}
+	private void deleteTheStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		System.out.println("Deleting the student..." + studentId);
+		studentDAO.delete(studentId);
 	}
+
 
 	@Bean
 	public CommandLineRunner  commandLineRunner (StudentDAO studentDAO){
 		return runner -> {
 			//createMultipleStudent(studentDAO);
 			//readStudent(studentDAO);
-			queryForStudentsByTheLastNames(studentDAO);
+			//queryForStudentsByTheLastNames(studentDAO);
+			//updateStudent(studentDAO);
+			deleteTheStudent(studentDAO);
 		};
 
 	}
